@@ -1,5 +1,6 @@
 body {
 	width: 100vw;
+	min-height: 100vh;
 	font-family: sans-serif;
 	letter-spacing: 2px;
 }
@@ -10,7 +11,8 @@ body {
 }
 #service_sp,
 #news_sp,
-#inquiry_sp {
+#inquiry_sp,
+.sp_menu {
 	display: none;
 }
 
@@ -19,20 +21,22 @@ body {
 /* header */
 .top_header {
 	display: flex;
+	align-items: center;
 	border-bottom: 2px solid#fff;
 	background-color: rgb(23, 17, 0);
 	width: 100vw;
-	height: 80px;
+	height: 10vh;
 	justify-content: space-between;
 }
 
 .logo {
+	display: flex;
 	color: #fff;
 	font-size: 2.5vw;
 	font-weight: bold;
 	padding-left: 5%;
 	text-decoration: none;
-	line-height: 80px;
+	/* line-height: 80px; */
 }
 .menu {
 	display: flex;
@@ -192,6 +196,7 @@ section {
 
 #news {
 	display: flex;
+	margin-top: 50px;
 	flex-direction: column;
 	align-items: center;
 }
@@ -327,7 +332,72 @@ footer small {
 	transition: 0.2s;
 }
 
+.open,
+.close {
+	display: none;
+}
+
+input[type="checkbox"] {
+	position: absolute;
+	left: -50vw;
+}
+
 @media screen and (max-width: 700px) {
+	.open,
+	.close,
+	.sp_menu {
+		display: flex;
+	}
+	.open {
+		position: absolute;
+		top: 4%;
+		right: 10%;
+		color: #fff;
+		font-size: 9vw;
+	}
+	.close {
+		display: flex;
+		width: 90vw;
+		height: 150px;
+		padding: 30px 30px 0 0;
+		justify-content: right;
+		color: white;
+		font-size: 9vw;
+	}
+	.sp_menu {
+		position: absolute;
+		width: 100vw;
+		min-height: 100vh;
+		flex-direction: column;
+		top: -100vh;
+		background-color: rgb(23, 17, 0);
+		transition: all 0.2s;
+	}
+	.sp_menu ul {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		height: 50vh;
+	}
+	.sp_menu li {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		font-size: 6vw;
+	}
+	.sp_menu li a {
+		list-style: none;
+		text-decoration: none;
+		color: white;
+	}
+	input[type="checkbox"]:checked ~ .sp_menu {
+		top: 0;
+	}
+	input[type="checkbox"]:checked ~ .back {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+	}
 	body {
 		margin: 0 auto;
 		width: 100vw;
@@ -356,7 +426,7 @@ footer small {
 
 	/* top */
 	.top_header {
-		height: 100px;
+		height: 12vh;
 	}
 
 	/* logo */
